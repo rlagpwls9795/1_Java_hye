@@ -26,6 +26,8 @@ public class VariableExample5 {
 		System.out.printf("%s님은 %d세 %c성, 키는 %.1fcm입니다. (%b)\n" ,name,age,gender,height,tf);
 		// \n : 줄바꿈을 표현하는 escape 문자
 		
+		System.out.println("내가 추가한 내용");
+		
 	}
 
 }
