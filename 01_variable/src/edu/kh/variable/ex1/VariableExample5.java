@@ -28,6 +28,10 @@ public class VariableExample5 {
 		
 		System.out.println("내가 추가한 내용");
 		
+		/*주석 
+		System.out.println();
+		System.out.println();
+		*/
 	}
 
 }
