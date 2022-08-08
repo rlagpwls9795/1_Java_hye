@@ -20,6 +20,7 @@ public class OperatorExample1 {
 		System.out.printf("%d / %d = %d\n", input1, input2, (input1/input2));
 		
 		System.out.printf("%d %% %d = %d\n", input1, input2, (input1%input2));
+		//cf. % 연산 사용 시 %% 
 	}
 
 }
