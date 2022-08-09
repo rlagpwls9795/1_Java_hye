@@ -24,7 +24,7 @@ public class ConditionPractice {
 		System.out.print("수학점수 : ");
 		int mat = sc.nextInt();
 		int sum = kor+eng+mat;
-		double avg = (kor+eng+mat)/3;
+		double avg = (kor+eng+mat)/3.0;
 		
 		if(kor>=40 && eng>=40 && mat>=40 && avg>=60) {
 			System.out.println("국어 : "+kor);
@@ -44,7 +44,8 @@ public class ConditionPractice {
 		int day;
 		switch(month) {
 		case 1: case 3: case 5: case 7: case 8: case 10: case 12: day=31; break;
-		case 2: case 4: case 6: case 9: case 11: day=30; break;
+		case 4: case 6: case 9: case 11: day=30; break;
+		case 2: day=28; break;
 		default: day=0;
 		}
 		if(day==0) {
@@ -79,26 +80,28 @@ public class ConditionPractice {
 	public void practice5() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("중간 고사 점수 : ");
-		double num1 = sc.nextDouble();
+		double num1 = sc.nextDouble()*0.2;
 		System.out.print("기말 고사 점수 : ");
-		double num2 = sc.nextDouble();
+		double num2 = sc.nextDouble()*0.3;
 		System.out.print("과제 점수 : ");
-		double num3 = sc.nextDouble();
+		double num3 = sc.nextDouble()*0.3;
 		System.out.print("출석 횟수 : ");
 		double num4 = sc.nextDouble();
-		double num5=num1*0.2+num2*0.3+num3*0.3+num4;
+		double num5=num1+num2+num3+num4;
 		System.out.println("=============결과=============");
-		System.out.printf("중간 고사 점수(20) : %.1f\n",num1*0.2);
-		System.out.printf("기말 고사 점수(30) : %.1f\n",num2*0.3);
-		System.out.printf("과제 점수    (30) : %.1f\n",num3*0.3);
-		System.out.printf("출석 점수    (20) : %.1f\n",num4);
-		System.out.printf("총점 : %.1f\n", num5);
-		if (num4<14) {
+		if (num4<=14) {
 			System.out.printf("FAIL [출석 횟수 부족 (%.0f/20)]\n",num4);
-		} else if(num5<70) {
-			System.out.println("FAIL [점수 미달]");
 		} else {
+			System.out.printf("중간 고사 점수(20) : %.1f\n",num1);
+			System.out.printf("기말 고사 점수(30) : %.1f\n",num2);
+			System.out.printf("과제 점수    (30) : %.1f\n",num3);
+			System.out.printf("출석 점수    (20) : %.1f\n",num4);
+			System.out.printf("총점 : %.1f\n", num5);
+			if(num5<70) {
+				System.out.println("FAIL [점수 미달]");
+			} else {
 			System.out.println("PASS");
+			}
 		}
 		
 	}
