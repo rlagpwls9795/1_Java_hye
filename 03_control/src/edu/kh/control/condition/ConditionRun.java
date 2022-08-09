@@ -1,5 +1,7 @@
 package edu.kh.control.condition;
 
+import java.util.Scanner;
+
 //코드 실행시키는 부분
 public class ConditionRun {
 	public static void main(String[] args) {
@@ -20,6 +22,9 @@ public class ConditionRun {
 //		switchEx.ex3();
 		switchEx.ex4();
 //		switchEx.ex5();
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println();
 		
 	}
 
