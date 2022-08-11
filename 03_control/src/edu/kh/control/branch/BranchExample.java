@@ -81,5 +81,26 @@ public class BranchExample {
 			System.out.println(i);
 		}
 	}
+	//난수 생성 : Math.random() -> 0.0 이상 1.0 미만의 난수 생성(double)
+	//1~50 사이의 난수(정수로) 생성 ==> (int)(Math.random*50+1)
+	
+	public void upDownGame() {
+		int count = 1;
+		int ran = (int)(Math.random()*50+1);
+		Scanner sc = new Scanner(System.in);
+		while(true) {
+			System.out.print(count+"번 입력 : ");
+			int num = sc.nextInt();
+			if(num<ran) {
+				System.out.println("UP");
+			} else if(num>ran) {				
+				System.out.println("DOWN");
+			} else {				
+				System.out.printf("정답입니다! (총 입력 횟수 : %d회)\n",count);
+				break;
+			}
+			count++;
+		}
+	}
 }
 
