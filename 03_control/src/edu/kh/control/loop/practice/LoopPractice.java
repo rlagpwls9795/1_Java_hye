@@ -60,6 +60,16 @@ public class LoopPractice {
 					System.out.print(i+" ");
 				}
 			}
+			System.out.println("\nfor문 한 번 쓰는 법 : 변수를 추가 생성 or temp");
+			int start=num1;
+			int end=num2;
+			if(num1>num2) {
+				start=num2;
+				end=num1;
+			}
+			for(int i=num1;i<=num2;i++) {
+				System.out.print(i+" ");
+			}
 		}
 		System.out.println();
 	}
@@ -114,11 +124,26 @@ public class LoopPractice {
 		System.out.print("정수 입력 : ");
 		int input = sc.nextInt();
 		for(int i=1;i<=input;i++) {
-			for(int j=input-i;j>=0;j--) {
+			for(int j=input-i;j>=1;j--) {
 				System.out.print(" ");
 			}
 			for(int k=1;k<=i;k++) {
 				System.out.print("*");				
+			}
+			System.out.println();
+		}
+	}
+	public void practice9v2() { //if문 이용
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 입력 : ");
+		int input = sc.nextInt();
+		for(int i=1;i<=input;i++) {
+			for(int j=1;j<=input;j++) {
+				if(j<=input-i) {
+					System.out.print(" ");
+				} else {
+					System.out.print("*");
+				}
 			}
 			System.out.println();
 		}
@@ -130,7 +155,7 @@ public class LoopPractice {
 		for(int i=1;i<=input*2-1;i++) {
 			if(i<=input) {
 				for(int j=1;j<=i;j++) {
-					System.out.print("*");
+					System.out.print("*");	
 				}
 			} else {
 				for(int j=input-1;j>=i-input;j--) {
@@ -145,11 +170,26 @@ public class LoopPractice {
 		System.out.print("정수 입력 : ");
 		int input = sc.nextInt();
 		for(int i=1;i<=input;i++) {
-			for(int j=input-i;j>=0;j--) {
+			for(int j=input-i;j>=1;j--) {
 				System.out.print(" ");
 			}
 			for(int k=1;k<=i*2-1;k++) {
 				System.out.print("*");				
+			}
+			System.out.println();
+		}
+	}
+	public void practice11v2() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 입력 : ");
+		int input = sc.nextInt();
+		for(int i=1;i<=input;i++) {
+			for(int j=1;j<=input*2-1;j++) {
+				if(input-i>=j || input+i<=j) {
+					System.out.print(" ");
+				} else {
+					System.out.print("*");
+				}
 			}
 			System.out.println();
 		}
@@ -173,6 +213,21 @@ public class LoopPractice {
 			System.out.println();
 		}
 	}
+	public void practice12v2() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 입력 : ");
+		int input = sc.nextInt();
+		for(int i=1;i<=input;i++) {
+			for(int j=1;j<=input;j++) {
+				if(i==1 || i==input || j==1 || j==input) {
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println();
+		}
+	}
 	public void practice13() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("자연수 하나를 입력하세요 : ");
@@ -187,8 +242,7 @@ public class LoopPractice {
 				}
 			}
 		}
-		System.out.println();
-		System.out.println("count : "+count);
+		System.out.println("\ncount : "+count);
 	} 
 
 }
