@@ -130,9 +130,12 @@ public class BranchExample {
 		int cnt2=0;
 		int cnt3=0;
 		for(int i=1;i<=input;i++) {
-			System.out.println(i+"번째 게임");
+			System.out.println("\n"+i+"번째 게임");
+			System.out.print("가위/바위/보 중 하나를 입력해주세요 : ");
+			String str=sc.next();
 			int ran = (int)(Math.random()*3);
 			String sran="";
+			//String sran=null;
 			if(ran==0) {
 				sran="가위";
 			} else if(ran==1) {
@@ -140,8 +143,11 @@ public class BranchExample {
 			} else {
 				sran="보";
 			}
-			System.out.print("가위/바위/보 중 하나를 입력해주세요 : ");
-			String str=sc.next();
+//			switch(ran) {
+//			case 0: sran="가위"; break;
+//			case 1: sran="바위"; break;
+//			case 2: sran="보"; break; 
+//			}
 			System.out.printf("컴퓨터는 [%s]를 선택했습니다.\n",sran);
 			if(str.equals("가위")) {
 				if(sran.equals(str)) {
@@ -177,6 +183,20 @@ public class BranchExample {
 					cnt1++;
 				}
 			}
+//			if(str.equals(sran)) {
+//				System.out.println("비겼습니다.");
+//			} else {
+//				//사용자가 이기는 경우
+//				boolean win1=str.equals("가위") && sran.equals("보");
+//				boolean win2=str.equals("보") && sran.equals("바위");
+//				boolean win3=str.equals("바위") && sran.equals("가위");
+			
+//				if(win1||win2||win3) {
+//					System.out.println("플레이어 승");
+//				} else {
+//					System.out.println("졌습니다.");
+//				}
+//			}
 			System.out.printf("현재 기록 : %d승 %d무 %d패\n\n",cnt1,cnt2,cnt3);
 			
 		}
