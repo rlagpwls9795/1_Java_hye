@@ -570,12 +570,28 @@ public class ArrayPractice {
 		int col=sc.nextInt();
 		for(int i=0;i<arr.length;i++) {
 			for(int j=0;j<arr[i].length;j++) {
-				
+				if(i==row+1 && j==col+1) {
+					arr[i][j]="x";
+				} else {
+					arr[i][j]=" ";
+					if(i==0) {
+						arr[i][0]=" ";
+						for(int k=0;k<arr[i].length-1;k++) {
+							arr[i][k+1]=" "+k;
+						}
+					}
+					if(j==0) {
+						arr[0][j]=" ";
+						for(int k=0;k<arr.length-1;k++) {
+							arr[k+1][j]=""+k;
+						}
+					}
+				}
 			}
 		}
 		for(int i=0;i<arr.length;i++) {
 			for(int j=0;j<arr[i].length;j++) {
-				System.out.print(arr[i][j]);
+				System.out.print(arr[i][j]+" ");
 			}
 			System.out.println();
 		}
