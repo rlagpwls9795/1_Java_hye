@@ -253,7 +253,6 @@ public class ArrayPractice {
 		System.out.println();
 	}
 	
-	//=======================================================
 	public void practice13() {
 		//문자열을 입력 받아 문자열에 어떤 문자가 들어갔는지 배열에 저장하고
 		//문자의 개수와 함께 출력하세요. (중복 제거)
@@ -261,19 +260,37 @@ public class ArrayPractice {
 		System.out.print("문자열 : ");
 		String str = sc.next();
 		char arr[]=new char[str.length()];
-		int cnt;
 		for(int i=0;i<arr.length;i++) {
+			arr[i]=str.charAt(i);
 			for(int j=0;j<i;j++) {
-				arr[i]=str.charAt(j);
-				if(arr[i]==arr[j]) {
-					j++;
+				if(arr[j]==arr[i]) {
+					arr[i]=0;
+					j--;
+					break;
 				}
 			}
 		}
+		int cnt=0;
+		for(int i=0;i<arr.length;i++) {
+			if(arr[i]!=0) {
+				cnt++;
+			}
+		}
+		char arr2[]=new char[cnt];
+		int empty=0;
+		for(int i=0;i<arr.length;i++) {
+			if(arr[i]!=0) {
+				arr2[i-empty]=arr[i];
+			} else {
+				empty++;
+			}
+		}
 		System.out.println(Arrays.toString(arr));
+		System.out.println(Arrays.toString(arr2));
+		System.out.println("문자 개수 : "+cnt);
 	}
-	//=======================================================
 	
+	//=======================================================
 	public void practice14() {
 		/*사용자가 입력한 배열의 길이만큼의 String 배열을 선언 및 할당하고
 		배열의 인덱스에 넣을 값 역시 사용자가 입력하여 초기화 하세요.
@@ -295,10 +312,11 @@ public class ArrayPractice {
 			String yesorno=sc.next();
 			if(yesorno.equals("y")) {
 				System.out.print("배열의 크기를 입력하세요 : ");
-				input += sc.nextInt();
+				int input2 = sc.nextInt();
+				input += input2;
 				String arr2[]=new String[input];
-				System.arraycopy(arr, 0, arr2, 0, arr.length-1);
-				for(int i=arr.length;i<input;i++) {
+				System.arraycopy(arr, 0, arr2, 0, arr.length);
+				for(int i=arr2.length-1;i<input;i++) {
 					System.out.print((i+1)+"번째 문자열 : ");
 					String str = sc.next();
 					arr2[i]=str;
@@ -308,7 +326,7 @@ public class ArrayPractice {
 				flag=false;
 			}
 		}
-		System.out.println(Arrays.toString(arr));
+		System.out.println(Arrays.toString(arr2));
 	}
 	
 	public void practice15() {
@@ -577,7 +595,7 @@ public class ArrayPractice {
 					if(i==0) {
 						arr[i][0]=" ";
 						for(int k=0;k<arr[i].length-1;k++) {
-							arr[i][k+1]=" "+k;
+							arr[i][k+1]=""+k;
 						}
 					}
 					if(j==0) {
@@ -595,11 +613,51 @@ public class ArrayPractice {
 			}
 			System.out.println();
 		}
-
 	}
 	
 	public void practice24() {
 		//실습문제9와 내용은 같으나 행 입력 시 99가 입력되지 않으면 무한 반복이 되도록 구현하세요.
+		String arr[][]=new String[6][6];
+		boolean flag=true;
+		while(flag) {
+			Scanner sc = new Scanner(System.in);
+			System.out.print("행 인덱스 입력 : ");
+			int row=sc.nextInt();
+			if(row==99) {
+				flag=false;
+				System.out.println("프로그램 종료");
+			} else {
+				System.out.print("열 인덱스 입력 : ");
+				int col=sc.nextInt();
+				for(int i=0;i<arr.length;i++) {
+					for(int j=0;j<arr[i].length;j++) {
+						if(i==row+1 && j==col+1) {
+							arr[i][j]="x";
+						} else {
+							arr[i][j]=" ";
+							if(i==0) {
+								arr[i][0]=" ";
+								for(int k=0;k<arr[i].length-1;k++) {
+									arr[i][k+1]=""+k;
+								}
+							}
+							if(j==0) {
+								arr[0][j]=" ";
+								for(int k=0;k<arr.length-1;k++) {
+									arr[k+1][j]=""+k;
+								}
+							}
+						}
+					}
+				}
+				for(int i=0;i<arr.length;i++) {
+					for(int j=0;j<arr[i].length;j++) {
+						System.out.print(arr[i][j]+" ");
+					}
+					System.out.println();
+				}
+			}
+		}
 	}
 }
 
