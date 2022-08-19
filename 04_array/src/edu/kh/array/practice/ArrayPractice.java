@@ -290,7 +290,6 @@ public class ArrayPractice {
 		System.out.println("문자 개수 : "+cnt);
 	}
 	
-	//=======================================================
 	public void practice14() {
 		/*사용자가 입력한 배열의 길이만큼의 String 배열을 선언 및 할당하고
 		배열의 인덱스에 넣을 값 역시 사용자가 입력하여 초기화 하세요.
@@ -300,10 +299,11 @@ public class ArrayPractice {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("배열의 크기를 입력하세요 : ");
 		int input = sc.nextInt();
+		sc.nextLine();
 		String arr[]=new String[input];
 		for(int i=0;i<arr.length;i++) {
 			System.out.print((i+1)+"번째 문자열 : ");
-			String str = sc.next();
+			String str = sc.nextLine();
 			arr[i]=str;
 		}
 		boolean flag=true;
@@ -313,20 +313,23 @@ public class ArrayPractice {
 			if(yesorno.equals("y")) {
 				System.out.print("배열의 크기를 입력하세요 : ");
 				int input2 = sc.nextInt();
+				sc.nextLine();
 				input += input2;
 				String arr2[]=new String[input];
 				System.arraycopy(arr, 0, arr2, 0, arr.length);
-				for(int i=arr2.length-1;i<input;i++) {
+				for(int i=arr.length;i<input;i++) {
 					System.out.print((i+1)+"번째 문자열 : ");
-					String str = sc.next();
+					String str = sc.nextLine();
 					arr2[i]=str;
 				}
+				arr=arr2;
+				
 			} 
 			if(yesorno.equals("n")) {
 				flag=false;
 			}
 		}
-		System.out.println(Arrays.toString(arr2));
+		System.out.println(Arrays.toString(arr));
 	}
 	
 	public void practice15() {
@@ -618,47 +621,67 @@ public class ArrayPractice {
 	public void practice24() {
 		//실습문제9와 내용은 같으나 행 입력 시 99가 입력되지 않으면 무한 반복이 되도록 구현하세요.
 		String arr[][]=new String[6][6];
-		boolean flag=true;
-		while(flag) {
-			Scanner sc = new Scanner(System.in);
-			System.out.print("행 인덱스 입력 : ");
-			int row=sc.nextInt();
-			if(row==99) {
-				flag=false;
-				System.out.println("프로그램 종료");
-			} else {
-				System.out.print("열 인덱스 입력 : ");
-				int col=sc.nextInt();
-				for(int i=0;i<arr.length;i++) {
-					for(int j=0;j<arr[i].length;j++) {
-						if(i==row+1 && j==col+1) {
-							arr[i][j]="x";
-						} else {
-							arr[i][j]=" ";
-							if(i==0) {
-								arr[i][0]=" ";
-								for(int k=0;k<arr[i].length-1;k++) {
-									arr[i][k+1]=""+k;
-								}
-							}
-							if(j==0) {
-								arr[0][j]=" ";
-								for(int k=0;k<arr.length-1;k++) {
-									arr[k+1][j]=""+k;
-								}
-							}
+		Scanner sc = new Scanner(System.in);
+		System.out.print("행 인덱스 입력 : ");
+		int row=sc.nextInt();
+		System.out.print("열 인덱스 입력 : ");
+		int col=sc.nextInt();
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				if(i==row+1 && j==col+1) {
+					arr[i][j]="x";
+				} else {
+					arr[i][j]=" ";
+					if(i==0) {
+						arr[i][0]=" ";
+						for(int k=0;k<arr[i].length-1;k++) {
+							arr[i][k+1]=""+k;
+						}
+					}
+					if(j==0) {
+						arr[0][j]=" ";
+						for(int k=0;k<arr.length-1;k++) {
+							arr[k+1][j]=""+k;
 						}
 					}
 				}
-				for(int i=0;i<arr.length;i++) {
-					for(int j=0;j<arr[i].length;j++) {
-						System.out.print(arr[i][j]+" ");
+			}
+		}
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				System.out.print(arr[i][j]+" ");
+			}
+			System.out.println();
+		}
+		boolean flag=true;
+		while(flag) {
+			System.out.print("행 인덱스 입력 : ");
+			int row2=sc.nextInt();
+			if(row2 != 99) {
+				System.out.print("열 인덱스 입력 : ");
+				int col2=sc.nextInt();
+				String arr2[][]=new String[6][6];
+				arr2=arr;
+				for(int i=0;i<arr2.length;i++) {
+					for(int j=0;j<arr2[i].length;j++) {
+						if(i==row2+1 && j==col2+1) {
+							arr2[i][j]="x";
+						}
+					}
+				}
+				for(int i=0;i<arr2.length;i++) {
+					for(int j=0;j<arr2[i].length;j++) {
+						System.out.print(arr2[i][j]+" ");
 					}
 					System.out.println();
 				}
+			} else {
+				System.out.println("프로그램 종료");
+				flag=false;
 			}
 		}
 	}
+	
 }
 
 
