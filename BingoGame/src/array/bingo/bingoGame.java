@@ -37,10 +37,10 @@ public class bingoGame {
 		}
 		
 		//번호 입력
-		int cnt=0;
 		System.out.println("======= 빙고게임 시작 =======");
 		System.out.print("정수를 입력하시오 : ");
 		String star=sc.next();
+		int cnt=0;
 		for(int row=0;row<arr2.length;row++) {
 			for(int col=0;col<arr2[row].length;col++) {
 				if(arr2[row][col].equals(star)) {
@@ -56,7 +56,8 @@ public class bingoGame {
 		}
 		System.out.printf("현재 %d빙고\n\n\n",cnt);
 		boolean flag=true;
-		while(true) {
+		while(flag) {
+			cnt=0;
 			String arr3[][]=new String[arr2.length][arr2[0].length];
 			arr3=arr2;
 			System.out.print("정수를 입력하시오 : ");
@@ -121,6 +122,10 @@ public class bingoGame {
 			}
 			
 			System.out.printf("현재 %d빙고\n\n\n",cnt);
+			if(cnt==3) {
+				System.out.println("***** BINGO!! *****");
+				flag=false;
+			}
 		}
 		
 		
