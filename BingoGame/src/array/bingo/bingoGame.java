@@ -74,9 +74,52 @@ public class bingoGame {
 				}
 				System.out.println();
 			}
+			//행
 			for(int row=0;row<arr3.length;row++) {
-				
+				int starInt=0;
+				for(int col=0;col<arr3[row].length;col++) {
+					if(arr3[row][col].equals("★")) {
+						starInt++;
+						}
+				}
+				if(starInt==input) {
+					cnt++;
+				}
 			}
+			//열
+			for(int row=0;row<arr3.length;row++) {
+				int starInt=0;
+				for(int col=0;col<arr3[row].length;col++) {
+					if(arr3[col][row].equals("★")) {
+						starInt++;
+						}
+				}
+				if(starInt==input) {
+					cnt++;
+				}
+			}
+			//대각선(왼-오)
+			int starInt=0;
+			for(int i=0;i<arr3.length;i++) {
+				if(arr3[i][i].equals("★")) {
+					starInt++;
+					}
+			}
+			if(starInt==input) {
+				cnt++;
+			}
+			
+			//대각선(오-왼)
+			starInt=0;
+			for(int i=0;i<arr3.length;i++) {
+				if(arr3[i][input-1-i].equals("★")) {
+					starInt++;
+					}
+			}
+			if(starInt==input) {
+				cnt++;
+			}
+			
 			System.out.printf("현재 %d빙고\n\n\n",cnt);
 		}
 		
