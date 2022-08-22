@@ -122,7 +122,20 @@ public class StudentManagementView {
 		System.out.println("[학생 1명 정보 조회(이름 검색)]");
 		System.out.print("이름 : ");
 		String name=sc.next();
-		System.out.println(service.selectName(name));
+		//학생 정보 조회(이름) 서비스 메서드 호출 후 결과 반환
+		Student[] resultArr=service.selectName(name);
+		if(resultArr==null) {
+			System.out.println("검색 결과가 없습니다.");
+		} else {
+			for(int i=0;i<resultArr.length;i++) {
+				if(resultArr[i]==null) {
+					break;
+				} else {
+					System.out.printf("%s (%d학년 %d반 %d번) \n",
+							resultArr[i].getName(),resultArr[i].getGrade(),resultArr[i].getClassRoom(),resultArr[i].getNumber());
+				}
+			}
+		}
 	}
 	
 	/**
