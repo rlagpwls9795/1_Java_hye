@@ -20,7 +20,7 @@ public class FieldRun {
 		std1.study();
 		
 		System.out.println("[std2]");
-		System.out.println("이름 : "+std2.name); //std1이 참조하는 객체의 name 필드값 출력
+		System.out.println("이름 : "+std2.name); //std2이 참조하는 객체의 name 필드값 출력
 		System.out.println("학교명 : "+std2.schoolName);
 		std2.study();
 		
