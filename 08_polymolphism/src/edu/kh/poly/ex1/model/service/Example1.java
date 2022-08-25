@@ -48,14 +48,14 @@ public class Example1 {
 	}
 	
 	public void printCar(Car c) {
-		System.out.println("자동차 점보 >> "+c);
+		System.out.println("자동차 정보 >> "+c);
 	} //전달 받은 객체가 자식 객체이고 toString()을 오버라이딩했다면 동적바인딩을 이용해서 자식 toString() 호출
 	
 //	public void printTruck(Truck c) {
-//		System.out.println("자동차 점보 >> "+c);
+//		System.out.println("자동차 정보 >> "+c);
 //	}
 //	public void printSpark(Spark c) {
-//		System.out.println("자동차 점보 >> "+c);
+//		System.out.println("자동차 정보 >> "+c);
 //	}
 	
 	//다운 캐스팅 
