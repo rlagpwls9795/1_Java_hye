@@ -13,13 +13,13 @@ public class Run {
 		
 		SetService service2=new SetService();
 //		service2.ex1();
-//		service2.ex2();
+		service2.ex2();
 //		service2.ex3();
 		
 		MapService service3=new MapService();
 //		service3.ex1();
 //		service3.ex2();
-		service3.ex3();
+//		service3.ex3();
 	}
 
 }
